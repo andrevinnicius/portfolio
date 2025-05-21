@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/* ======== BASE ======== */
+
 body {
     background: linear-gradient(-45deg, #11998e, #38ef7d, #43cea2, #185a9d);
     background-size: 400% 400%;
@@ -23,7 +23,7 @@ html {
     100% {background-position: 0% 50%;}
 }
 
-/* ======== CONTAINER PRINCIPAL ======== */
+
 .main-container {
     width: 100%;
     max-width: 800px;
@@ -35,7 +35,7 @@ html {
     border: 1.5px solid rgba(56,239,125,0.10);
 }
 
-/* ======== CABEÇALHO E FOTO ======== */
+
 .main-container h1,
 header h1 {
     text-align: center;
@@ -54,7 +54,7 @@ header h1 {
     box-shadow: 0 2px 8px rgba(17,153,142,0.10);
 }
 
-/* ======== SOBRE ======== */
+
 #sobre {
     background: rgba(56, 239, 125, 0.08);
     border-radius: 14px;
@@ -76,7 +76,7 @@ header h1 {
     margin-bottom: 12px;
 }
 
-/* ======== PROJETOS ======== */
+
 #projetos {
     margin: 32px 0;
 }
@@ -154,7 +154,7 @@ header h1 {
     justify-content: center;
 }
 
-/* ======== CONTATO ======== */
+
 #contato {
     background: rgba(56,239,125,0.07);
     border-radius: 14px;
@@ -213,7 +213,7 @@ header h1 {
     background: linear-gradient(90deg, #38ef7d, #11998e);
 }
 
-/* ======== NAVEGAÇÃO ======== */
+
 .main-nav ul {
     display: flex;
     justify-content: center;
@@ -245,7 +245,7 @@ header h1 {
     color: #fff;
 }
 
-/* ======== LOKI ANIMADO ======== */
+
 .loki-animado {
     animation: flutuar 2.5s ease-in-out infinite alternate;
     filter: drop-shadow(0 0 16px #38ef7d);
@@ -256,7 +256,7 @@ header h1 {
     100% { transform: translateY(-20px);}
 }
 
-/* ======== SCROLL DOWN ======== */
+
 .scroll-down {
     margin-top: 8px;
     font-size: 2.5rem;
@@ -281,7 +281,7 @@ header h1 {
     }
 }
 
-/* Loki fixo no rodapé */
+
 .loki-fixo {
     position: fixed;
     left: 20%;

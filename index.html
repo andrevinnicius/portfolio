@@ -34,29 +34,27 @@
         <section id="projetos" class="fade-in">
             <h2>Projetos</h2>
             <div id="github-projects"></div>
-            <!-- Seus projetos manuais podem continuar aqui -->
         </section>
     </div>
 
     <img src="img/loki.png" alt="Loki animado" class="loki-fixo"/>
 
-    <!-- Botão Voltar ao Topo -->
     <button id="backToTop" style="display:none;position:fixed;bottom:32px;right:32px;z-index:99;border:none;background:#11998e;color:#fff;padding:12px 18px;border-radius:50%;font-size:1.5rem;box-shadow:0 2px 8px #38ef7d;cursor:pointer;">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- SCRIPTS -->
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
-    // Imagens personalizadas dos projetos
+
+
     const imagensProjetos = {
       "pagina-videos": "img/logo.png",
       "nome-do-repo-2": "img/projeto2.png"
-      // Adicione mais: "nome-do-repo": "caminho/da/imagem"
+
     };
 
-    // Função para escapar HTML (protege contra XSS)
+
     function escapeHTML(str) {
       if (!str) return "";
       return str.replace(/[&<>"']/g, function(m) {
@@ -70,10 +68,10 @@
       });
     }
 
-    // Integração com GitHub
+
     const githubUser = "andrevinnicius";
     const container = document.getElementById("github-projects");
-    const ignorar = ["port"]; // nomes dos repos que quer ocultar
+    const ignorar = ["port"];
 
     fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated`)
       .then(res => res.json())
@@ -104,7 +102,7 @@
         container.innerHTML = "<p>Não foi possível carregar os projetos do GitHub.</p>";
       });
 
-    // Fade-in ao rolar
+
     const fadeEls = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -113,7 +111,7 @@
     });
     fadeEls.forEach(el => observer.observe(el));
 
-    // Botão Voltar ao Topo
+
     const btn = document.getElementById('backToTop');
     window.onscroll = function() {
       btn.style.display = window.scrollY > 300 ? "block" : "none";
