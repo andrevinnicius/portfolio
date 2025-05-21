@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    /* Fundo gradiente animado com tons de roxo */
+    background: linear-gradient(-45deg, #11998e, #38ef7d, #43cea2, #185a9d);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Poppins', Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.container h1{
+    text-align: center;
+    color: #333;
+}
+
+.container h2, .container h3 {
+    text-align: center;
+    color: #6a11cb;
+}
+
+.container p{
+    line-height: 1.6;
+    color: #555;
+}
+
+.container img{
+    max-width: 100%;
+    height: auto;
+}
+
+.container .button{
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.container .button:hover{
+    background-color: #0056b3;
+}
+
+.container .card{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.container .card h2{
+    margin-top: 0;
+}
+
+.container .card p{
+    margin: 10px 0;
+}
+
+.container .card img{
+    float: right;
+    margin-left: 20px;
+}
+
+.container .card .button{
+    margin-top: 10px;
+}
+.container .card .button:hover{
+    background-color: #0056b3;
+}
+.container .card .button:active{
+    background-color: #004085;
+}
+.container .card .button:focus{
+    outline: none;
+}
+.container .card .button:focus-visible{
+    outline: 2px solid #0056b3;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 16px auto;
+    border: 4px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* SOBRE */
+#sobre {
+    background: rgba(164, 69, 178, 0.08);
+    border-radius: 12px;
+    padding: 32px 24px;
+    margin: 32px 0;
+    box-shadow: 0 2px 12px rgba(106,17,203,0.06);
+    text-align: center;
+}
+
+#sobre h2 {
+    color: #8f06b3;
+    margin-bottom: 16px;
+}
+
+#sobre p {
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+/* PROJETOS */
+#projetos {
+    margin: 32px 0;
+}
+
+#projetos h2 {
+    color: #8f06b3;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.projeto {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(106,17,203,0.10);
+    padding: 28px 24px;
+    margin: 28px 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: left;
+    border-left: 6px solid #a445b2;
+}
+
+.projeto:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(106,17,203,0.16);
+}
+
+.projeto h3 {
+    color: #6a11cb;
+    margin-bottom: 8px;
+}
+
+.projeto p {
+    color: #185a9d;
+    margin-bottom: 10px;
+}
+
+.projeto a {
+    background: linear-gradient(90deg, #11998e, #38ef7d);
+    color: #fff;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 24px;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(56,239,125,0.08);
+    border: none;
+    outline: none;
+}
+
+.projeto a:hover {
+    background: linear-gradient(90deg, #38ef7d, #11998e);
+}
+
+/* CONTATO */
+#contato {
+    background: rgba(56,239,125,0.07);
+    border-radius: 14px;
+    padding: 32px 24px;
+    margin: 32px 0;
+    box-shadow: 0 2px 12px rgba(56,239,125,0.08);
+    text-align: center;
+}
+
+#contato h2 {
+    color: #8f06b3;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+#contato form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#contato input,
+#contato textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #c471f5;
+    font-size: 1rem;
+    resize: vertical;
+    color: #185a9d;
+    background: #f8fdfb;
+    transition: border 0.2s;
+}
+
+#contato input:focus,
+#contato textarea:focus {
+    border: 1.5px solid #11998e;
+    outline: none;
+}
+
+#contato button {
+    background: linear-gradient(90deg, #6a11cb, #a445b2);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#contato button:hover {
+    background: linear-gradient(90deg, #38ef7d, #11998e);
+}
