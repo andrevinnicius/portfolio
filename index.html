@@ -35,8 +35,23 @@
             <h2>Projetos</h2>
             <div id="github-projects"></div>
         </section>
+
+        <section id="contato" class="fade-in">
+            <div class="contato-social">
+                <a href="https://github.com/andrevinnicius" target="_blank" title="E-mail"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/andrevinnicius" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://github.com/andrevinnicius" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/andrevinnicius" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/andrevinnicius" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </section>
+         <p class="my-5 text-center" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #11998e; color: #fff; padding: 10px; text-align: center;">
+            &copy; 2025André Vinícius Candido Cruz. Todos os direitos reservados.
+
     </div>
 
+    
+    
     <img src="img/loki.png" alt="Loki animado" class="loki-fixo"/>
 
     <button id="backToTop" style="display:none;position:fixed;bottom:32px;right:32px;z-index:99;border:none;background:#11998e;color:#fff;padding:12px 18px;border-radius:50%;font-size:1.5rem;box-shadow:0 2px 8px #38ef7d;cursor:pointer;">
@@ -46,15 +61,14 @@
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
-
-
+    // Imagens personalizadas dos projetos
     const imagensProjetos = {
       "pagina-videos": "img/logo.png",
       "nome-do-repo-2": "img/projeto2.png"
-
+      // Adicione mais: "nome-do-repo": "caminho/da/imagem"
     };
 
-
+    // Função para escapar HTML (protege contra XSS)
     function escapeHTML(str) {
       if (!str) return "";
       return str.replace(/[&<>"']/g, function(m) {
@@ -68,10 +82,10 @@
       });
     }
 
-
+    // Integração com GitHub
     const githubUser = "andrevinnicius";
     const container = document.getElementById("github-projects");
-    const ignorar = ["port"];
+    const ignorar = ["portfolio"]; // nomes dos repos que quer ocultar
 
     fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated`)
       .then(res => res.json())
@@ -102,7 +116,7 @@
         container.innerHTML = "<p>Não foi possível carregar os projetos do GitHub.</p>";
       });
 
-
+    // Fade-in ao rolar
     const fadeEls = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -111,12 +125,19 @@
     });
     fadeEls.forEach(el => observer.observe(el));
 
-
+    // Botão Voltar ao Topo
     const btn = document.getElementById('backToTop');
     window.onscroll = function() {
       btn.style.display = window.scrollY > 300 ? "block" : "none";
     };
     btn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+    // Feedback do formulário de contato (simulação)
+    document.getElementById('form-contato').onsubmit = function(e) {
+      e.preventDefault();
+      document.getElementById('contato-feedback').innerHTML = "<span style='color:green;'>Mensagem enviada! (Simulação)</span>";
+      this.reset();
+    };
     </script>
 </body>
 </html>

@@ -175,7 +175,7 @@ header h1 {
     flex-direction: column;
     gap: 16px;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 auto 18px auto;
 }
 
 #contato input,
@@ -211,6 +211,24 @@ header h1 {
 
 #contato button:hover {
     background: linear-gradient(90deg, #38ef7d, #11998e);
+}
+
+.contato-social {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.contato-social a {
+    color: #11998e;
+    font-size: 2rem;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.contato-social a:hover {
+    color: #38ef7d;
+    transform: scale(1.15);
 }
 
 
