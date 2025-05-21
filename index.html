@@ -85,7 +85,7 @@
     // Integração com GitHub
     const githubUser = "andrevinnicius";
     const container = document.getElementById("github-projects");
-    const ignorar = ["portfolio"]; // nomes dos repos que quer ocultar
+    const ignorar = ["portifolio", "portfolio"]; // nomes dos repos que quer ocultar
 
     fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated`)
       .then(res => res.json())
