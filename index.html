@@ -8,17 +8,13 @@
     <title>Portifolio</title>
 </head>
 <body>
-    <!-- Exemplo: Loki animado no topo do site -->
-<div style="text-align:center; margin-bottom: 24px;">
-    <img src="URL_DO_GIF_AQUI" alt="Loki animado" style="width:160px; max-width:100%;"/>
-</div>
     <div class="main-container">
         <header>
             <div class="social-icons">
                 <img src="https://github.com/andrevinnicius.png" alt="Logo" class="logo">
             </div>
             <h1>André Vinícius Candido Cruz</h1>
-            <nav>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#projetos">Projetos</a></li>
@@ -27,7 +23,7 @@
             </nav>
         </header>
 
-        <section id="sobre">
+        <section id="sobre" class="fade-in">
             <h2>Sobre Mim</h2>
             <p>Sou um desenvolvedor web apaixonado por criar soluções inovadoras e eficientes. Tenho experiência em HTML, CSS, JavaScript e Python.</p>
             <p>Estou sempre em busca de novos desafios e oportunidades para aprender e crescer na área de tecnologia.</p>
@@ -35,33 +31,94 @@
             <p>Estou sempre aberto a novas oportunidades e colaborações. Se você está interessado em trabalhar comigo ou tem alguma dúvida, não hesite em entrar em contato!</p>
         </section>
 
-        <section id="projetos">
+        <section id="projetos" class="fade-in">
             <h2>Projetos</h2>
-            <div class="projeto">
-                <h3>Projeto 1</h3>
-                <p>Descrição do projeto 1. Este projeto foi desenvolvido utilizando HTML, CSS e JavaScript.</p>
-                <a href="" target="_blank">Ver projeto</a>
-            </div>
-        
-            <div class="projeto">
-                <h3>Projeto 2</h3>
-                <p>Descrição do projeto 2. Este projeto foi desenvolvido utilizando Python e Django.</p>
-                <a href="" target="_blank">Ver projeto</a>
-            </div>
-
-            <div class="projeto">
-                <h3>Projeto 3</h3>
-                <p>Descrição do projeto 3. Este projeto foi desenvolvido utilizando React e Node.js.</p>
-                <a href="" target="_blank">Ver projeto</a>
-
-            </div>
-            <div class="projeto">
-                <h3>Projeto 4</h3>
-                <p>Descrição do projeto 4. Este projeto foi desenvolvido utilizando Java e Spring Boot.</p>
-                <a href="" target="_blank">Ver projeto</a>
-
-            </div>
+            <div id="github-projects"></div>
+            <!-- Seus projetos manuais podem continuar aqui -->
         </section>
     </div>
+
+    <img src="img/loki.png" alt="Loki animado" class="loki-fixo"/>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" style="display:none;position:fixed;bottom:32px;right:32px;z-index:99;border:none;background:#11998e;color:#fff;padding:12px 18px;border-radius:50%;font-size:1.5rem;box-shadow:0 2px 8px #38ef7d;cursor:pointer;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+    // Imagens personalizadas dos projetos
+    const imagensProjetos = {
+      "pagina-videos": "img/logo.png",
+      "nome-do-repo-2": "img/projeto2.png"
+      // Adicione mais: "nome-do-repo": "caminho/da/imagem"
+    };
+
+    // Função para escapar HTML (protege contra XSS)
+    function escapeHTML(str) {
+      if (!str) return "";
+      return str.replace(/[&<>"']/g, function(m) {
+        return ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        })[m];
+      });
+    }
+
+    // Integração com GitHub
+    const githubUser = "andrevinnicius";
+    const container = document.getElementById("github-projects");
+    const ignorar = ["port"]; // nomes dos repos que quer ocultar
+
+    fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated`)
+      .then(res => res.json())
+      .then(repos => {
+        const filtered = repos
+          .filter(repo => !repo.fork && !ignorar.includes(repo.name))
+          .slice(0, 6);
+        container.innerHTML = filtered.map(repo => `
+          <div class="projeto">
+            <div class="projeto-flex">
+              <img src="${imagensProjetos[repo.name] || 'img/default.png'}" alt="Imagem do projeto ${escapeHTML(repo.name)}" class="img-projeto">
+              <div class="projeto-info">
+                <h3>${escapeHTML(repo.name)}</h3>
+                <p>${repo.description ? escapeHTML(repo.description) : "Sem descrição."}</p>
+                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                  <a href="${repo.html_url}" target="_blank" class="btn-projeto">GitHub</a>
+                  ${repo.homepage ? 
+                    `<a href="${repo.homepage}" target="_blank" class="btn-projeto visualizar">Visualizar</a>` : 
+                    `<a class="btn-projeto visualizar disabled" tabindex="-1" aria-disabled="true" style="pointer-events:none;opacity:0.5;">Visualizar</a>`
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      })
+      .catch(() => {
+        container.innerHTML = "<p>Não foi possível carregar os projetos do GitHub.</p>";
+      });
+
+    // Fade-in ao rolar
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Botão Voltar ao Topo
+    const btn = document.getElementById('backToTop');
+    window.onscroll = function() {
+      btn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+    btn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+    </script>
 </body>
 </html>

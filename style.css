@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* ======== BASE ======== */
 body {
-    /* Fundo gradiente animado com tons de roxo */
     background: linear-gradient(-45deg, #11998e, #38ef7d, #43cea2, #185a9d);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
@@ -13,95 +13,35 @@ body {
     align-items: center;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 @keyframes gradientBG {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
     100% {background-position: 0% 50%;}
 }
 
-.container{
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-.container h1{
-    text-align: center;
-    color: #333;
-}
-
-.container h2, .container h3 {
-    text-align: center;
-    color: #6a11cb;
-}
-
-.container p{
-    line-height: 1.6;
-    color: #555;
-}
-
-.container img{
-    max-width: 100%;
-    height: auto;
-}
-
-.container .button{
-    display: inline-block;
-    font-size: 18px;
-    color: #fff;
-    background-color: #007BFF;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.container .button:hover{
-    background-color: #0056b3;
-}
-
-.container .card{
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.container .card h2{
-    margin-top: 0;
-}
-
-.container .card p{
-    margin: 10px 0;
-}
-
-.container .card img{
-    float: right;
-    margin-left: 20px;
-}
-
-.container .card .button{
-    margin-top: 10px;
-}
-.container .card .button:hover{
-    background-color: #0056b3;
-}
-.container .card .button:active{
-    background-color: #004085;
-}
-.container .card .button:focus{
-    outline: none;
-}
-.container .card .button:focus-visible{
-    outline: 2px solid #0056b3;
-}
-
+/* ======== CONTAINER PRINCIPAL ======== */
 .main-container {
     width: 100%;
     max-width: 800px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.85);
+    border-radius: 24px;
+    padding: 40px 32px;
+    box-shadow: 0 8px 32px rgba(17,153,142,0.18);
+    backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(56,239,125,0.10);
+}
+
+/* ======== CABEÇALHO E FOTO ======== */
+.main-container h1,
+header h1 {
+    text-align: center;
+    color: #111;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .logo {
@@ -111,60 +51,63 @@ body {
     display: block;
     margin: 0 auto 16px auto;
     border: 4px solid #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(17,153,142,0.10);
 }
 
-/* SOBRE */
+/* ======== SOBRE ======== */
 #sobre {
-    background: rgba(164, 69, 178, 0.08);
-    border-radius: 12px;
+    background: rgba(56, 239, 125, 0.08);
+    border-radius: 14px;
     padding: 32px 24px;
     margin: 32px 0;
-    box-shadow: 0 2px 12px rgba(106,17,203,0.06);
+    box-shadow: 0 2px 12px rgba(56,239,125,0.08);
     text-align: center;
 }
 
 #sobre h2 {
-    color: #8f06b3;
+    color: #11998e;
     margin-bottom: 16px;
+    font-weight: 700;
 }
 
 #sobre p {
-    color: #444;
+    color: #185a9d;
     font-size: 1.1rem;
     margin-bottom: 12px;
 }
 
-/* PROJETOS */
+/* ======== PROJETOS ======== */
 #projetos {
     margin: 32px 0;
 }
 
 #projetos h2 {
-    color: #8f06b3;
+    color: #11998e;
     text-align: center;
     margin-bottom: 24px;
+    font-weight: 700;
 }
 
 .projeto {
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(106,17,203,0.10);
+    box-shadow: 0 4px 16px rgba(56,239,125,0.10);
     padding: 28px 24px;
     margin: 28px 0;
     transition: transform 0.2s, box-shadow 0.2s;
     text-align: left;
-    border-left: 6px solid #a445b2;
+    border-left: 6px solid #38ef7d;
 }
 
 .projeto:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 32px rgba(106,17,203,0.16);
+    box-shadow: 0 8px 32px rgba(56,239,125,0.16);
 }
 
 .projeto h3 {
-    color: #6a11cb;
+    color: #11998e;
     margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .projeto p {
@@ -189,7 +132,29 @@ body {
     background: linear-gradient(90deg, #38ef7d, #11998e);
 }
 
-/* CONTATO */
+.projeto-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.img-projeto {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(56,239,125,0.10);
+    flex-shrink: 0;
+}
+
+.projeto-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ======== CONTATO ======== */
 #contato {
     background: rgba(56,239,125,0.07);
     border-radius: 14px;
@@ -200,7 +165,7 @@ body {
 }
 
 #contato h2 {
-    color: #8f06b3;
+    color: #11998e;
     margin-bottom: 16px;
     font-weight: 700;
 }
@@ -217,7 +182,7 @@ body {
 #contato textarea {
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #c471f5;
+    border: 1px solid #43cea2;
     font-size: 1rem;
     resize: vertical;
     color: #185a9d;
@@ -232,7 +197,7 @@ body {
 }
 
 #contato button {
-    background: linear-gradient(90deg, #6a11cb, #a445b2);
+    background: linear-gradient(90deg, #11998e, #38ef7d);
     color: #fff;
     border: none;
     border-radius: 24px;
@@ -241,8 +206,141 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(56,239,125,0.08);
 }
 
 #contato button:hover {
     background: linear-gradient(90deg, #38ef7d, #11998e);
+}
+
+/* ======== NAVEGAÇÃO ======== */
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0 0;
+}
+
+.main-nav ul li a {
+    color: #11998e;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a:focus {
+    background: linear-gradient(90deg, #38ef7d, #11998e);
+    color: #fff;
+    outline: none;
+}
+
+.main-nav ul li a.active {
+    background: #11998e;
+    color: #fff;
+}
+
+/* ======== LOKI ANIMADO ======== */
+.loki-animado {
+    animation: flutuar 2.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 16px #38ef7d);
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-20px);}
+}
+
+/* ======== SCROLL DOWN ======== */
+.scroll-down {
+    margin-top: 8px;
+    font-size: 2.5rem;
+    color: #11998e;
+    animation: bounce 1.5s infinite, glow 2s infinite alternate;
+    filter: drop-shadow(0 0 8px #38ef7d);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(12px);}
+}
+
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 8px #38ef7d);}
+    100% { filter: drop-shadow(0 0 24px #38ef7d);}
+}
+
+@keyframes gradientText {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Loki fixo no rodapé */
+.loki-fixo {
+    position: fixed;
+    left: 20%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 140px;
+    max-width: 100%;
+    z-index: 100;
+    animation: flutuar 2.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 16px #38ef7d);
+    pointer-events: none;
+    user-select: none;
+}
+
+.btn-projeto {
+    background: linear-gradient(90deg, #11998e, #38ef7d);
+    color: #fff;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 24px;
+    transition: background 0.2s, opacity 0.2s;
+    box-shadow: 0 2px 8px rgba(56,239,125,0.08);
+    border: none;
+    outline: none;
+    display: inline-block;
+}
+
+.btn-projeto.visualizar {
+    background: linear-gradient(90deg, #185a9d, #43cea2);
+}
+
+.btn-projeto:hover:not(.disabled),
+.btn-projeto:focus:not(.disabled) {
+    background: linear-gradient(90deg, #38ef7d, #11998e);
+    color: #fff;
+    opacity: 0.9;
+}
+
+.btn-projeto.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.img-projeto {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 12px rgba(56,239,125,0.10);
 }
