@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- FontAwesome CDN correto -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Portifolio</title>
 </head>
 <body>
@@ -44,100 +45,20 @@
                 <a href="https://github.com/andrevinnicius" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://github.com/andrevinnicius" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
-        <p class="contato-social">Entre em contato comigo!</p>
+            <p class="contato-social">Entre em contato comigo!</p>
         </section>
 
-         <p style="text-align:center; padding:16px 0; color:#888; font-size:0.95rem;">
-    © 2025 André Vinícius Candido Cruz. Todos os direitos reservados.
-</div>
+        <p class="rodape">
+            © 2025 André Vinícius Candido Cruz. Todos os direitos reservados.
+        </p>
+    </div>
 
+    <img src="img/loki.png" alt="Loki animado" class="loki-fixo"/>
 
-<img src="img/loki.png" alt="Loki animado" class="loki-fixo"/>
-
-<button id="backToTop" style="display:none;position:fixed;bottom:32px;right:32px;z-index:99;border:none;background:#11998e;color:#fff;padding:12px 18px;border-radius:50%;font-size:1.5rem;box-shadow:0 2px 8px #38ef7d;cursor:pointer;">
+    <button id="backToTop" style="display:none;position:fixed;bottom:32px;right:32px;z-index:99;border:none;background:#11998e;color:#fff;padding:12px 18px;border-radius:50%;font-size:1.5rem;box-shadow:0 2px 8px #38ef7d;cursor:pointer;">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script>
-    // Imagens personalizadas dos projetos
-    const imagensProjetos = {
-      "pagina-videos": "img/logo.png",
-      "nome-do-repo-2": "img/projeto2.png"
-      // Adicione mais: "nome-do-repo": "caminho/da/imagem"
-    };
-
-    // Função para escapar HTML (protege contra XSS)
-    function escapeHTML(str) {
-      if (!str) return "";
-      return str.replace(/[&<>"']/g, function(m) {
-        return ({
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;'
-        })[m];
-      });
-    }
-
-    // Integração com GitHub
-    const githubUser = "andrevinnicius";
-    const container = document.getElementById("github-projects");
-    const ignorar = ["portfolio"]; // nomes dos repos que quer ocultar
-
-    fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated`)
-      .then(res => res.json())
-      .then(repos => {
-        const filtered = repos
-          .filter(repo => !repo.fork && !ignorar.includes(repo.name))
-          .slice(0, 6);
-        container.innerHTML = filtered.map(repo => `
-          <div class="projeto">
-            <div class="projeto-flex">
-              <img src="${imagensProjetos[repo.name] || 'img/default.png'}" alt="Imagem do projeto ${escapeHTML(repo.name)}" class="img-projeto">
-              <div class="projeto-info">
-                <h3>${escapeHTML(repo.name)}</h3>
-                <p>${repo.description ? escapeHTML(repo.description) : "Sem descrição."}</p>
-                <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                  <a href="${repo.html_url}" target="_blank" class="btn-projeto">GitHub</a>
-                  ${repo.homepage ? 
-                    `<a href="${repo.homepage}" target="_blank" class="btn-projeto visualizar">Visualizar</a>` : 
-                    `<a class="btn-projeto visualizar disabled" tabindex="-1" aria-disabled="true" style="pointer-events:none;opacity:0.5;">Visualizar</a>`
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-        `).join('');
-      })
-      .catch(() => {
-        container.innerHTML = "<p>Não foi possível carregar os projetos do GitHub.</p>";
-      });
-
-    // Fade-in ao rolar
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    });
-    fadeEls.forEach(el => observer.observe(el));
-
-    // Botão Voltar ao Topo
-    const btn = document.getElementById('backToTop');
-    window.onscroll = function() {
-      btn.style.display = window.scrollY > 300 ? "block" : "none";
-    };
-    btn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
-
-    // Feedback do formulário de contato (simulação)
-    document.getElementById('form-contato').onsubmit = function(e) {
-      e.preventDefault();
-      document.getElementById('contato-feedback').innerHTML = "<span style='color:green;'>Mensagem enviada! (Simulação)</span>";
-      this.reset();
-    };
-    </script>
 </body>
 </html>

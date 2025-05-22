@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 body {
     background: linear-gradient(-45deg, #11998e, #38ef7d, #43cea2, #185a9d);
+    color: #111;
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     font-family: 'Poppins', Arial, sans-serif;
     min-height: 100vh;
-    margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
 html {
@@ -23,18 +27,20 @@ html {
     100% {background-position: 0% 50%;}
 }
 
-
 .main-container {
+    background: #fff;
+    flex: 1 0 auto;
     width: 100%;
     max-width: 800px;
-    background: rgba(255,255,255,0.85);
     border-radius: 24px;
     padding: 40px 32px;
     box-shadow: 0 8px 32px rgba(17,153,142,0.18);
     backdrop-filter: blur(6px);
     border: 1.5px solid rgba(56,239,125,0.10);
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto;
 }
-
 
 .main-container h1,
 header h1 {
@@ -56,7 +62,8 @@ header h1 {
 
 
 #sobre {
-    background: rgba(56, 239, 125, 0.08);
+    background: rgba(56,239,125,0.08);
+    color: #185a9d;
     border-radius: 14px;
     padding: 32px 24px;
     margin: 32px 0;
@@ -76,16 +83,16 @@ header h1 {
     margin-bottom: 12px;
 }
 
-
-#projetos {
-    margin: 32px 0;
-}
-
-#projetos h2 {
+#projetos h2,
+#contato h2 {
     color: #11998e;
     text-align: center;
     margin-bottom: 24px;
     font-weight: 700;
+}
+
+#projetos {
+    margin: 32px 0;
 }
 
 .projeto {
@@ -263,43 +270,6 @@ header h1 {
     color: #fff;
 }
 
-
-.loki-animado {
-    animation: flutuar 2.5s ease-in-out infinite alternate;
-    filter: drop-shadow(0 0 16px #38ef7d);
-}
-
-@keyframes flutuar {
-    0% { transform: translateY(0);}
-    100% { transform: translateY(-20px);}
-}
-
-
-.scroll-down {
-    margin-top: 8px;
-    font-size: 2.5rem;
-    color: #11998e;
-    animation: bounce 1.5s infinite, glow 2s infinite alternate;
-    filter: drop-shadow(0 0 8px #38ef7d);
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0);}
-    50% { transform: translateY(12px);}
-}
-
-@keyframes glow {
-    0% { filter: drop-shadow(0 0 8px #38ef7d);}
-    100% { filter: drop-shadow(0 0 24px #38ef7d);}
-}
-
-@keyframes gradientText {
-    to {
-        background-position: 200% center;
-    }
-}
-
-
 .loki-fixo {
     position: fixed;
     left: 20%;
@@ -312,6 +282,11 @@ header h1 {
     filter: drop-shadow(0 0 16px #38ef7d);
     pointer-events: none;
     user-select: none;
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-20px);}
 }
 
 .btn-projeto {
@@ -361,4 +336,12 @@ header h1 {
   margin-bottom: 12px;
   object-fit: cover;
   box-shadow: 0 2px 12px rgba(56,239,125,0.10);
+}
+
+.rodape {
+    margin-top: auto;
+    text-align: center;
+    padding: 16px 0;
+    color: #888;
+    font-size: 0.95rem;
 }
