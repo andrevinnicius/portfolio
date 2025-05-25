@@ -345,3 +345,57 @@ header h1 {
     color: #888;
     font-size: 0.95rem;
 }
+
+/* Responsividade para tablets e celulares */
+@media (max-width: 900px) {
+  .main-container {
+    max-width: 95vw;
+    padding: 24px 8px;
+  }
+  .projeto-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .img-projeto {
+    max-width: 90vw;
+    width: 100%;
+    height: auto;
+  }
+  .loki-fixo {
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+  .main-container {
+    padding: 12px 2vw;
+    border-radius: 12px;
+  }
+  #sobre, #contato {
+    padding: 16px 4px;
+  }
+  .projeto {
+    padding: 16px 8px;
+    margin: 16px 0;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .loki-fixo {
+    width: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 400px) {
+  .loki-fixo {
+    display: none;
+  }
+}
